@@ -1,0 +1,24 @@
+{
+  "name": "nosql-social-network-api",
+  "version": "1.0.0",
+  "description": "No Sql",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kathylopez97/NoSQL-Social-Network-API.git"
+  },
+  "author": "Kathy Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kathylopez97/NoSQL-Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/kathylopez97/NoSQL-Social-Network-API#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.2.4"
+  }
+}
