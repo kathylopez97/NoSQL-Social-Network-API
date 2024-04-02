@@ -28,7 +28,7 @@ getAllUsers(req, res) {
  // This functions updates Users by ID
   updateUsersById(req, res) {
     console.log("Update Users by ID",req.body)
-    Users.findOneAndUpdate(req.params.id, req.body, { new: true })
+    Users.findOneAndUpdate(req.params.usersid, req.body, { new: true })
       .then(userDb => {
         if (!userDb) {
           return res.status(404).json({ message: 'User ID not updated' });
@@ -41,7 +41,7 @@ getAllUsers(req, res) {
   // This functions delete Users By ID
   deleteUsersById(req, res) {
     console.log("delete Users by ID",req.body)
-    Users.findOneAndDelete(req.params.id)
+    Users.findOneAndDelete(req.params.usersid)
       .then(userDb => {
         if (!userDb) {
           return res.status(404).json({ message: 'User not found' });
@@ -73,9 +73,8 @@ getAllUsers(req, res) {
 
   // This functions delete friends
   deleteFriends({ params }, res) {
-    console.log("delete Friends",req.body)
     Users.findOneAndUpdate(
-      { _id: params.getUsersById },
+      { _id: params.usersId },
       { $pull: { friends: params.friendsId } },
       { new: true }
     )
@@ -84,7 +83,7 @@ getAllUsers(req, res) {
           return res.status(404).json({ message: "No user with this id!" });
         }
         //verify if delete friend
-        const deleted = !userDb.friends.includes(params.friendsID);
+        const deleted = !userDb.friends.includes(params.friendsId);
         // return response with appropriate message
         if (deleted) {
           res.json({ message: "deleted Friend!", userDb });

@@ -66,7 +66,7 @@ const thoughtsController = {
     console.log ("Delete a thought",req.body)
     try {
       const thoughts = await Thoughts.findByIdAndDelete(
-        req.params.thoughtsID,
+        req.params.thoughtsId,
         req.body,
         {
           new: true,
@@ -98,7 +98,7 @@ const thoughtsController = {
   },
   // this functions DELETES reactions
   async deleteReactions(req, res) {
-    console.log ("Delete reactions",req.body)
+    console.log("Delete reactions",req.body)
     try {
       const thoughts = await Thoughts.findOneAndUpdate(
         {_id: req.params.thoughtsId},
